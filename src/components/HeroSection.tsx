@@ -1,10 +1,32 @@
 
 import { ArrowDownCircle } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 
 const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center pt-16 pb-8 overflow-hidden">
+      {/* Banner with images */}
+      <div className="w-full h-48 md:h-64 lg:h-80 mb-8 overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-10"></div>
+        <div className="flex gap-2 md:gap-4 h-full justify-center">
+          <img 
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+            alt="Developer working" 
+            className="object-cover h-full w-1/3 rounded-md"
+          />
+          <img 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+            alt="Developer coding" 
+            className="object-cover h-full w-1/3 rounded-md"
+          />
+          <img 
+            src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+            alt="Developer with laptop" 
+            className="object-cover h-full w-1/3 rounded-md"
+          />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-1/2">
