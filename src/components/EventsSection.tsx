@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Calendar, MapPin, Users, ChevronRight, Gallery } from 'lucide-react';
+import { Calendar, MapPin, Users, ChevronRight, ImageIcon } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '../components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel';
@@ -140,7 +140,7 @@ const EventsSection = () => {
                 <p className="text-gray-700 mb-6">{selectedEvent.description}</p>
                 
                 <div className="mb-2 flex items-center gap-2">
-                  <Gallery className="h-5 w-5" />
+                  <ImageIcon className="h-5 w-5" />
                   <h3 className="text-lg font-medium">Event Gallery</h3>
                 </div>
                 
