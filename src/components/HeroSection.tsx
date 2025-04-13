@@ -1,8 +1,6 @@
-
 import { ArrowDownCircle } from 'lucide-react';
 import { Button } from "../components/ui/button";
-// We'll use a placeholder image until you add your own
-// import profileImage from '../pictures/Profilepic/profile.jpg';
+import profileImage from '/public/lovable-uploads/1bcc17d2-7caa-4858-95d3-dd330c0be00b.png';
 
 const HeroSection = () => {
   return (
@@ -57,7 +55,7 @@ const HeroSection = () => {
             <div className="profile-container">
               <div className="profile-bg"></div>
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                src={profileImage} 
                 alt="Profile"
                 className="profile-image w-64 h-64 md:w-80 md:h-80 object-cover"
               />
