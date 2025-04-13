@@ -1,4 +1,3 @@
-
 import { ArrowDownCircle } from 'lucide-react';
 import { Button } from "../components/ui/button";
 
@@ -58,6 +57,11 @@ const HeroSection = () => {
                 src="/lovable-uploads/1bcc17d2-7caa-4858-95d3-dd330c0be00b.png" 
                 alt="Profile"
                 className="profile-image w-64 h-64 md:w-80 md:h-80 object-cover"
+                onError={(e) => {
+                  console.error('Failed to load profile image', e);
+                  // Optional: Set a fallback image if needed
+                  (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300';
+                }}
               />
             </div>
           </div>
