@@ -1,6 +1,6 @@
+
 import { ArrowDownCircle } from 'lucide-react';
 import { Button } from "../components/ui/button";
-import profileImage from '/public/lovable-uploads/1bcc17d2-7caa-4858-95d3-dd330c0be00b.png';
 
 const HeroSection = () => {
   return (
@@ -55,7 +55,7 @@ const HeroSection = () => {
             <div className="profile-container">
               <div className="profile-bg"></div>
               <img 
-                src={profileImage} 
+                src="/lovable-uploads/1bcc17d2-7caa-4858-95d3-dd330c0be00b.png" 
                 alt="Profile"
                 className="profile-image w-64 h-64 md:w-80 md:h-80 object-cover"
               />
