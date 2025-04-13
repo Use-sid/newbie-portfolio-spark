@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '../components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel';
 
-// Sample events data with multiple images per event
+// Sample events data with multiple images per event - you'll replace these with local image imports
 const events = [
   {
     id: 1,
@@ -14,13 +14,13 @@ const events = [
     location: "San Francisco, CA",
     description: "Attended sessions on React, TypeScript, and modern web development practices.",
     attendees: "500+",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "/src/pictures/Events/event1-main.jpg", // These will be replaced with your local images
     galleryImages: [
-      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-      "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
-      "https://images.unsplash.com/photo-1623479322729-28b25c16b011",
-      "https://images.unsplash.com/photo-1591115765373-5207764f72e4"
+      "/src/pictures/Events/event1-1.jpg",
+      "/src/pictures/Events/event1-2.jpg",
+      "/src/pictures/Events/event1-3.jpg",
+      "/src/pictures/Events/event1-4.jpg",
+      "/src/pictures/Events/event1-5.jpg"
     ]
   },
   {
@@ -30,13 +30,13 @@ const events = [
     location: "Online",
     description: "Monthly meetup discussing latest trends in JavaScript ecosystem.",
     attendees: "200+",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    image: "/src/pictures/Events/event2-main.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
-      "https://images.unsplash.com/photo-1516321165247-4aa89a48be28",
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
+      "/src/pictures/Events/event2-1.jpg",
+      "/src/pictures/Events/event2-2.jpg",
+      "/src/pictures/Events/event2-3.jpg",
+      "/src/pictures/Events/event2-4.jpg",
+      "/src/pictures/Events/event2-5.jpg"
     ]
   },
   {
@@ -46,16 +46,40 @@ const events = [
     location: "New York, NY",
     description: "Participated in a 48-hour hackathon building innovative web applications.",
     attendees: "350",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    image: "/src/pictures/Events/event3-main.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
-      "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83"
+      "/src/pictures/Events/event3-1.jpg",
+      "/src/pictures/Events/event3-2.jpg",
+      "/src/pictures/Events/event3-3.jpg",
+      "/src/pictures/Events/event3-4.jpg",
+      "/src/pictures/Events/event3-5.jpg"
     ]
   }
 ];
+
+// This is a helper component to handle image loading errors
+const ImageWithFallback = ({ src, alt, className }) => {
+  const [error, setError] = useState(false);
+  
+  // If image fails to load, show a fallback
+  const handleError = () => {
+    console.error(`Failed to load image: ${src}`);
+    setError(true);
+  };
+  
+  return error ? (
+    <div className={`flex items-center justify-center bg-gray-200 ${className}`}>
+      <ImageIcon className="h-12 w-12 text-gray-400" />
+    </div>
+  ) : (
+    <img 
+      src={src} 
+      alt={alt}
+      className={className}
+      onError={handleError}
+    />
+  );
+};
 
 const EventsSection = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -84,8 +108,8 @@ const EventsSection = () => {
               onClick={() => handleEventClick(event)}
             >
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={event.image} 
+                <ImageWithFallback
+                  src={event.image}
                   alt={event.title}
                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
                 />
@@ -150,8 +174,8 @@ const EventsSection = () => {
                       <CarouselItem key={index}>
                         <div className="p-1">
                           <div className="overflow-hidden rounded-lg">
-                            <img 
-                              src={image} 
+                            <ImageWithFallback
+                              src={image}
                               alt={`${selectedEvent.title} - Photo ${index + 1}`}
                               className="w-full h-[300px] object-cover object-center"
                             />
