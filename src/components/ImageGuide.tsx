@@ -1,10 +1,6 @@
 
 import React from 'react';
 
-// This is an example of how to import images in a React component
-// For example, if you have images in the src/pictures/Events folder:
-// import eventMainImage from '../pictures/Events/event1-main.jpg';
-
 const ImageGuide = () => {
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -28,16 +24,16 @@ const ImageGuide = () => {
           <li>
             <strong>Import the images</strong> at the top of your React component:
             <pre className="bg-gray-100 p-2 rounded mt-1">
-              import eventImage from '../pictures/Events/event1-main.jpg';
-              import profilePic from '../pictures/Profilepic/profile.jpg';
+              {`import eventImage from '../pictures/Events/event1-main.jpg';
+import profilePic from '../pictures/Profilepic/profile.jpg';`}
             </pre>
           </li>
           
           <li>
             <strong>Use the imported variables</strong> in your JSX:
             <pre className="bg-gray-100 p-2 rounded mt-1">
-              &lt;img src={eventImage} alt="Event" /&gt;
-              &lt;img src={profilePic} alt="Profile" /&gt;
+              {`<img src={eventImage} alt="Event" />
+<img src={profilePic} alt="Profile" />`}
             </pre>
           </li>
         </ol>
